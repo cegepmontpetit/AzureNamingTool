@@ -48,7 +48,7 @@ jobs:
         - id: secrets-valid
           env: 
             azure-webapp-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-            azure-webapp-publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+            azure-webapp-publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8C9AF05D6284A229E3147AB8BCF89EB }}
           if: (env.azure-webapp-name != null && env.azure-webapp-publish-profile != null)
           run: echo 'isvalid=true' >> $GITHUB_OUTPUT
             
@@ -109,5 +109,5 @@ jobs:
         uses: azure/webapps-deploy@v2
         with:
           app-name: ${{ secrets.AZURE_WEBAPP_NAME }}
-          publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B8C9AF05D6284A229E3147AB8BCF89EB }}
           package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
